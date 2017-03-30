@@ -115,6 +115,8 @@ map.on('click', function (e) {
         return;
     }
 
+    var imgvar = '<a href="http://beeldbank.utwente.nl/beeldbank/start/allematerialen/Gebouwen?fc=browse&queryid=1&listview=overview&view=preview&fileid=6&fuid=10000%2Fimg5%2FUT04046.jpg"><img src="http://beeldbank.utwente.nl/beeldbank/pcache/10000/8e/UT04046_ec6da.jpg" alt="Carré" width="100%"></a>';
+
     var feature = features[0];
     // var infos = start_date;
 
@@ -123,7 +125,7 @@ map.on('click', function (e) {
     //     .setHTML("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + ")</p><p style='your styles'>" + feature.properties.building + "</p><p style='your styles'>" + feature.properties.info)
     //     .addTo(map);
         
-    document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p><p style='your styles'>" + feature.properties.info + "</br>" + feature.properties.img);
+    document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p><p style='your styles'>" + feature.properties.info + "</br>" + feature.properties.img + "</br>" + imgvar);
 
     //  + "</p><p style='your styles'>" + feature.properties.existed_in
 });
