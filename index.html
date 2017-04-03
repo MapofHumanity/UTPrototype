@@ -125,7 +125,11 @@ map.on('click', function (e) {
     //     .setHTML("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + ")</p><p style='your styles'>" + feature.properties.building + "</p><p style='your styles'>" + feature.properties.info)
     //     .addTo(map);
         
-    document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p><p style='your styles'>" + feature.properties.info + '</br><a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '" width="100%"></a>');
+    document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + //Name
+        "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p>" + //Dates
+        '<a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '" width="100%"></a>' + //Clickable img
+        "<p style='your styles'>" + feature.properties.info + '</br>' //info text        
+        );
 
     //  + "</p><p style='your styles'>" + feature.properties.existed_in
 });
