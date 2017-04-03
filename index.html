@@ -115,19 +115,11 @@ map.on('click', function (e) {
         return;
     }
 
-    //var imgvar = 'http://beeldbank.utwente.nl/beeldbank/start/allematerialen/Gebouwen?fc=browse&queryid=1&listview=overview&view=preview&fileid=6&fuid=10000%2Fimg5%2FUT04046.jpghttp://beeldbank.utwente.nl/beeldbank/pcache/10000/8e/UT04046_ec6da.jpg';
-
     var feature = features[0];
-    // var infos = start_date;
 
-    // var popup = new mapboxgl.Popup()
-    //     .setLngLat(map.unproject(e.point))
-    //     .setHTML("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + "</p><p style='text-align: center;'>(" + feature.properties.start_date + ")</p><p style='your styles'>" + feature.properties.building + "</p><p style='your styles'>" + feature.properties.info)
-    //     .addTo(map);
-        
     document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + //Name
         "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p>" + //Dates
-        '<a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '" width="100%"></a>' + //Clickable img
+        '<a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '" max-width="100%"></a>' + //Clickable img
         "<p style='your styles'>" + feature.properties.info + '</br>' //info text        
         );
 
