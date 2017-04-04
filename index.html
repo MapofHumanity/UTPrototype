@@ -86,7 +86,7 @@
     <div class='map-overlay-inner'>
 <!--         <h2>Campus of the Universit of Twente in the year:</h2>
  -->    <label id='year'></label>
-        <input id='slider' type='range' min='1950' max='2016' step='1' value='2016' />
+        <input id='slider' type='range' min='1960' max='2016' step='1' value='2000' />
         
         
     </div>
@@ -119,7 +119,7 @@ map.on('click', function (e) {
 
     document.getElementById('infobox').innerHTML = ("<p style='font-size: 200%; text-align: center;'>" + feature.properties.name + //Name
         "</p><p style='text-align: center;'>(" + feature.properties.start_date + " - " +feature.properties.end_date + ")</p>" + //Dates
-        '<a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '" max-width="100%"></a>' + //Clickable img
+        '<a href="' + feature.properties.imgurl + '" target="_blank"><img src="' + feature.properties.img + '"style="max-width: 100%; max-height: 100%;""></a>' + //Clickable img
         "<p style='your styles'>" + feature.properties.info + '</br>' //info text        
         );
 
@@ -148,7 +148,7 @@ $(document).ready(function() {
     map.on('load', function() {
         // Set filter to first year of the year
         // 0 = January
-        filterBy("" + 2016 + "");
+        filterBy("" + 2000 + "");
 
         document.getElementById('slider').addEventListener('input', function(e) {
             var year = "" + parseInt(e.target.value, 10) + "";
