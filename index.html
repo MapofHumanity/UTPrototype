@@ -140,6 +140,7 @@ $(document).ready(function() {
         map.setFilter('waterlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);
         //map.setFilter('forestlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);
         map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);
+        map.setFilter('waysdataset', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);
 
             // Set the label to the year
         document.getElementById('year').textContent = year;
