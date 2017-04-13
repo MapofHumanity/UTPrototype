@@ -37,17 +37,29 @@
 .map-overlay2 {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
-    /*width: 200px;*/
     top: 10px;
     left: 25px;
     padding: 10px;
     background-color: #fff;
     border-style: solid;
     border-width: 1px;
-    width: 16.6667%; /* fallback for non-calc() browsers */
+    width: 16.6667%;
     width: calc(100% / 6);
     max-height: calc(100% / 1.3);
     overflow: scroll;
+
+/*    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    width: 16.6667%;
+    width: calc(100% / 6);
+    height: 100%;
+    overflow: scroll;*/
 }
 /*
 ::-webkit-scrollbar {
@@ -129,11 +141,12 @@
         <label id='infobox'>Click on a building.</label>
     </div>
 </div>
-<div class='map-overlay3 right'>
+
+<!-- <div class='map-overlay3 right'>
     <div class='map-overlay-inner3'>
         <label id='infobox'>2002: brandde een deel van de Cubicus af door brandstichting.</label>
     </div>
-</div>
+</div> -->
 <pre id='features'></pre>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFhbnZyIiwiYSI6ImNpdTJmczN3djAwMHEyeXBpNGVndWtuYXEifQ.GYZf7r9gTfQL3W-GpmmJ3A';
@@ -175,11 +188,12 @@ $(document).ready(function() {
     function filterBy(year) {
    
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);    //Buildings timeline
+        map.setFilter('buildingslayer copy', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);    //Buildings shadow timeline
         map.setFilter('waterlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);        //Water timeline
         //map.setFilter('forestlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);     //Forest timeline
-        //  map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);      //Grass timeline
+        //  map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);    //Grass timeline
         map.setFilter('waysdataset', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Roads timeline
-        map.setFilter('waysdataset copy', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Roads timeline
+        map.setFilter('waysdataset copy', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);  //Roads timeline
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);              //Roads timeline
 
             // Set the label to the year
