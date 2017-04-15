@@ -27,7 +27,6 @@ body {
     bottom: 0;
     left: 0;
     top: calc(85vh - 45px);
-
 }
 
 .map-overlay-yearsliderbox {
@@ -52,7 +51,7 @@ body {
 
 .map-overlay-infobox-content {
 }
-
+    
 .map-overlay-eventbox {
     position: absolute;
     /*width: 200px;*/
@@ -199,13 +198,16 @@ $(document).ready(function() {
     function filterBy(year) {
    
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
-        map.setFilter('buildingslayer copy', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
+        map.setFilter('buildingslayer_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
+        map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
         map.setFilter('waterlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                //Water timeline
         //map.setFilter('forestlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);             //Forest timeline
         //  map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Grass timeline
         map.setFilter('waysdataset', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);               //Roads timeline
-        map.setFilter('waysdataset copy', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);          //Roads timeline
+        map.setFilter('waysdataset_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);          //Roads timeline
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
+        map.setFilter('sports', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
+        map.setFilter('sports_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
 
             // Set the label to the year
         document.getElementById('year').textContent = year;
