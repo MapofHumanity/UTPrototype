@@ -173,9 +173,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGFhbnZyIiwiYSI6ImNpdTJmczN3djAwMHEyeXBpNGVnd
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg',
-    center: [6.852807998657227, 52.241729163624626],
+    center: [6.85220718383789, 52.24346350501319],
     zoom: 13,
-    maxBounds: [[6.807661056518555, 52.224750061441355], [6.891517639160156, 52.25476134255271]]
+    bearing: 10,
+    pitch: 20,
+    maxBounds: [[6.707661056518555, 52.184750061441355], [6.951517639160156, 52.30476134255271]]
 });
 
 map.on('click', function (e) {
@@ -212,7 +214,6 @@ $(document).ready(function() {
 
     map.on('load', function test() {
         // Set filter to first year of the year
-        // 0 = January
         filterBy("" + 2000 + "");
 
         document.getElementById('slider').addEventListener('input', function(e) {
@@ -220,5 +221,15 @@ $(document).ready(function() {
             filterBy(year);
         });
     });
+
+    map.flyTo({
+        center: [6.85220718383789, 52.24346350501319],
+        zoom: 14,
+        pitch: 0,
+        bearing: 15,
+        speed: 0.5, // make the flying slow
+        curve: 1, // change the speed at which it zooms out
+    });
+
 });
 </script>
