@@ -6,14 +6,17 @@
 body {
     display: block;
     margin: 0px;
+/*  border: 1px solid transparent;
+    padding-bottom: 20px;
+*/
 }
 
 #map {
     width: 100%;
-    height: 85vh;
+    height: calc(100vh - 90px);
     margin: 0px;
-    margin-bottom: 45px;
-}
+/*    margin-bottom: 45px;
+*/}
 
 #map canvas {
     cursor: crosshair;
@@ -26,7 +29,7 @@ body {
     height: 45px;
     bottom: 0;
     left: 0;
-    top: calc(85vh - 45px);
+    top: calc(100vh - 90px - 45px);
 }
 
 .map-overlay-yearsliderbox {
@@ -44,7 +47,7 @@ body {
     background-color: rgb(255,255,240);
     width: 16.6667%;
     width: calc(100% / 4);
-    height: calc(85vh - 45px);
+    height: calc(100vh - 90px - 45px);
     background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png);
     overflow: scroll;
 }
@@ -162,19 +165,18 @@ body {
 <!-- <div class='map-overlay-eventbox'>
         <label id='infobox'>2002: brandde een deel van de Cubicus af door brandstichting.</label>
     </div>
-</div> -->
-<pre id='features'></pre>
+</div> 
+<pre id='features'></pre>-->
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFhbnZyIiwiYSI6ImNpdTJmczN3djAwMHEyeXBpNGVndWtuYXEifQ.GYZf7r9gTfQL3W-GpmmJ3A';
+
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg'
+    style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg',
+    center: [6.852807998657227, 52.241729163624626],
+    zoom: 13,
+    maxBounds: [[6.807661056518555, 52.224750061441355], [6.891517639160156, 52.25476134255271]]
 });
-
-// map.on('mousemove', function(e) {
-//     var features = map.queryRenderedFeatures(e.point);
-//     document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
-// });
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {});
@@ -188,15 +190,10 @@ map.on('click', function (e) {
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
 
-  
-
 $(document).ready(function() {
     console.log("ready!");
 
-    var years = [1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, ];
-
     function filterBy(year) {
-   
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
@@ -208,12 +205,11 @@ $(document).ready(function() {
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
-
             // Set the label to the year
         document.getElementById('year').textContent = year;
     }
 
-    map.on('load', function() {
+    map.on('load', function test() {
         // Set filter to first year of the year
         // 0 = January
         filterBy("" + 2000 + "");
