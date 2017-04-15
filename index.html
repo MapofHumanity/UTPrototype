@@ -86,7 +86,7 @@ body {
     padding-top: -45px;
 }
 
-#year {
+#yearlable {
     color: white; 
     font-size: 200%; 
     text-align: center;
@@ -139,7 +139,7 @@ body {
 </style>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
-        <label id='year'></label>
+        <label id='yearlable'></label>
         <input id='slider' type='range' min='1960' max='2016' step='1' value='2000' />        
     </div>
 <div class='map-overlay-infobox'>
@@ -199,14 +199,15 @@ $(document).ready(function() {
         map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
         map.setFilter('waterlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                //Water timeline
         //map.setFilter('forestlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);             //Forest timeline
-        //  map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Grass timeline
+        //map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Grass timeline
         map.setFilter('waysdataset', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);               //Roads timeline
         map.setFilter('waysdataset_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);          //Roads timeline
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
-            // Set the label to the year
-        document.getElementById('year').textContent = year;
+        
+        // Set the label above the selecor to the year
+        document.getElementById('yearlable').textContent = year;
     }
 
     map.on('load', function test() {
