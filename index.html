@@ -208,6 +208,7 @@ $(document).ready(function() {
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
+        map.setFilter('forestcampus', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         
         // Set the label above the selecor to the year
         document.getElementById('yearlable').textContent = year;
@@ -231,6 +232,8 @@ $(document).ready(function() {
         speed: 0.5, // make the flying slow
         curve: 1, // change the speed at which it zooms out
     });
+
+    
 
 });
 </script>
