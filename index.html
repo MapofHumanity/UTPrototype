@@ -6,9 +6,6 @@
 body {
     display: block;
     margin: 0px;
-/*  border: 1px solid transparent;
-    padding-bottom: 20px;
-*/
 }
 
 #map {
@@ -39,7 +36,7 @@ body {
 }
 
 .map-overlay-infobox {
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font:  'Helvetica Neue', Arial, Helvetica, sans-serif;
     color: black;
     position: absolute;
     top: 0px;
@@ -140,12 +137,15 @@ body {
         background: #fff;
         position: absolute;
         z-index: 1;
-        top: 10px;
-        right: 10px;
+        bottom: 55px;
+        right: 27px;
         border-radius: 3px;
-        width: 120px;
-        border: 1px solid rgba(0,0,0,0.4);
-        font-family: 'Open Sans', sans-serif;
+        width: auto;
+        /*border: 1px solid rgba(0,0,0,0.4);*/
+        font-family: 12px/20px 'Open Sans', sans-serif;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        line-height: 1em;
+
     }
 
     #menu a {
@@ -154,7 +154,19 @@ body {
         display: block;
         margin: 0;
         padding: 0;
-        padding: 10px;
+        padding: 6px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+    #menu p {
+        font-size: 13px;
+        color: #fff;
+        background-color: #4d4d56;  
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 6px;
         text-decoration: none;
         border-bottom: 1px solid rgba(0,0,0,0.25);
         text-align: center;
@@ -165,7 +177,7 @@ body {
     }
 
     #menu a:hover {
-        background-color: #f8f8f8;
+        background-color: #3887be;
         color: #404040;
     }
 
@@ -181,7 +193,7 @@ body {
 
 
 </style>
-<nav id="menu"></nav>
+<nav id="menu"><p>Layers:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
         <label id='yearlable'></label>
@@ -286,7 +298,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
 
     var link = document.createElement('a');
     link.href = '#';
-    link.className = 'active';
+    link.className = '';
     link.textContent = id;
 
     link.onclick = function (e) {
