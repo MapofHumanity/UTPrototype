@@ -74,14 +74,16 @@ body {
 }
 
 .map-overlay-yearsliderbox input {
-    background-color: red;
-    display: inline-block;
+/*    display: inline-block;
     width: 90%;
     position: relative;
     margin: 0;
     margin-left: 5%;
     cursor: ew-resize;
     padding-top: -45px;
+*/
+    background-color: #4E4E56;
+
 }
 
 #yearlable {
@@ -196,13 +198,204 @@ body {
 }
 */
 
+/*input[type=range] {
+  -webkit-appearance: none;
+    display: inline-block;
+    width: 90%;
+    position: relative;
+    margin: 0;
+    margin-top: 8px;
+    margin-left: 5%;
+    cursor: ew-resize;
+    padding-top: -45px;
+
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 9px;  
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;   
+    background: rgb(199,199,199);
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 16px;
+  width: 39px;
+  border-radius: 7px;
+  background: #e45555;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.6px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgb(199,199,199);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: rgb(199,199,199);
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #e45555;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: rgb(199,199,199);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: rgb(199,199,199);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #e45555;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: rgb(199,199,199);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: rgb(199,199,199);
+}*/
+
+input[type=range].slider {
+  -webkit-appearance: none;
+    display: inline-block;
+    width: 90%;
+    position: relative;
+    margin: 0;
+    margin-top: 8px;
+    margin-left: 5% !important;
+    cursor: ew-resize;
+    padding-top: -45px;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 7.3px;
+  cursor: pointer;
+  box-shadow: 2.7px 2.7px 4.6px rgba(0, 0, 0, 0.32), 0px 0px 2.7px rgba(13, 13, 13, 0.32);
+  background: rgba(199, 199, 199, 0.61);
+  border-radius: 5.1px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 1.4px 1.4px 5.6px rgba(0, 0, 0, 0.37), 0px 0px 1.4px rgba(13, 13, 13, 0.37);
+  border: 0.4px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #da635d;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14.35px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: rgba(199, 199, 199, 0.61);
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 7.3px;
+  cursor: pointer;
+  box-shadow: 2.7px 2.7px 4.6px rgba(0, 0, 0, 0.32), 0px 0px 2.7px rgba(13, 13, 13, 0.32);
+  background: rgba(199, 199, 199, 0.61);
+  border-radius: 5.1px;
+  border: 0px solid #010101;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 1.4px 1.4px 5.6px rgba(0, 0, 0, 0.37), 0px 0px 1.4px rgba(13, 13, 13, 0.37);
+  border: 0.4px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #da635d;
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 7.3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: rgba(199, 199, 199, 0.61);
+  border: 0px solid #010101;
+  border-radius: 10.2px;
+  box-shadow: 2.7px 2.7px 4.6px rgba(0, 0, 0, 0.32), 0px 0px 2.7px rgba(13, 13, 13, 0.32);
+}
+input[type=range].slider::-ms-fill-upper {
+  background: rgba(199, 199, 199, 0.61);
+  border: 0px solid #010101;
+  border-radius: 10.2px;
+  box-shadow: 2.7px 2.7px 4.6px rgba(0, 0, 0, 0.32), 0px 0px 2.7px rgba(13, 13, 13, 0.32);
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 1.4px 1.4px 5.6px rgba(0, 0, 0, 0.37), 0px 0px 1.4px rgba(13, 13, 13, 0.37);
+  border: 0.4px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #da635d;
+  cursor: pointer;
+  height: 7.3px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: rgba(199, 199, 199, 0.61);
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: rgba(199, 199, 199, 0.61);
+}
+
+
+
 </style>
 <nav id="menu"><p>Layers:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
         <label id='yearlable'></label>
 <!--         <button onclick="myFunction()">  +1  </button> -->
-        <input id='slider' type='range' min='1960' max='2016' step='1' value='2016'/>        
+        <input  id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2016'/>        
     </div>
 <div class='map-overlay-infobox'>
         <div class='map-overlay-infobox-content'>
@@ -259,6 +452,8 @@ map.on('click', function (e) {
     document.getElementById('infobox_info').innerHTML = (feature.properties.info);
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
+
+
 
 $(document).ready(function() {
     console.log("ready!");
