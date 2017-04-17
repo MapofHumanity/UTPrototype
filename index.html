@@ -201,7 +201,8 @@ body {
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
         <label id='yearlable'></label>
-        <input id='slider' type='range' min='1960' max='2016' step='1' value='1964' />        
+<!--         <button onclick="myFunction()">  +1  </button> -->
+        <input id='slider' type='range' min='1960' max='2016' step='1' value='2016'/>        
     </div>
 <div class='map-overlay-infobox'>
         <div class='map-overlay-infobox-content'>
@@ -241,6 +242,12 @@ var map = new mapboxgl.Map({
     maxBounds: [[6.707661056518555, 52.184750061441355], [6.951517639160156, 52.30476134255271]]
 });
 
+// function myFunction() {
+//     document.getElementById("slider").stepUp(1);
+//         console.log("+1 test!");
+
+// }
+
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {});
     if (!features.length) {return;}
@@ -253,18 +260,8 @@ map.on('click', function (e) {
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
 
-    var yearvar = document.getElementById("slider").value;
-    var yearplus1N = Number(yearvar);
-    var yearminus1N = Number(yearvar) - 1;
-    var yearplus1 = yearplus1N.toString();
-    var yearminus1 = yearminus1N.toString();
-
 $(document).ready(function() {
     console.log("ready!");
-    // console.log(yearplus1N);
-    // console.log(yearminus1N);
-    // console.log(yearplus1);
-    // console.log(yearminus1);    
 
     function filterBy(year) {
         var yearvar = document.getElementById("slider").value;
@@ -276,6 +273,7 @@ $(document).ready(function() {
         var yearminus1 = yearminus1N.toString();
         var yearplus2 = yearplus2N.toString();
         var yearminus2 = yearminus2N.toString();
+
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
@@ -293,11 +291,9 @@ $(document).ready(function() {
     }
 
 
-
-
     map.on('load', function test() {
         // Set filter to first year of the year
-        filterBy("" + 1964 + "");
+        filterBy("" + 2016 + "");
 
         document.getElementById('slider').addEventListener('input', function(e) {
             var year = "" + parseInt(e.target.value, 10) + "";
@@ -314,39 +310,36 @@ $(document).ready(function() {
         curve: 1, // change the speed at which it zooms out
     });
 
-//The values in this variable are the layer names that will have a toggle.
-var toggleableLayerIds = [ '1963' ];
+    //The values in this variable are the layer names that will have a toggle.
+    var toggleableLayerIds = [ '1963' ];
 
-//The following code is to creatie the  buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
-for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
-    var id = toggleableLayerIds[i];
+    //The following code is to creatie the  buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
+    for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
+        var id = toggleableLayerIds[i];
 
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = '';
-    link.textContent = id;
+        var link = document.createElement('a');
+        link.href = '#';
+        link.className = '';
+        link.textContent = id;
 
-    link.onclick = function (e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
+        link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
 
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
-        if (visibility === 'visible') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-        } else {
-            this.className = 'active';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-        }
-    };
+            if (visibility === 'visible') {
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+        };
 
-    var layers = document.getElementById('menu');
-    layers.appendChild(link);
-}
-
-
-
+        var layers = document.getElementById('menu');
+        layers.appendChild(link);
+    }
 });
 </script>
