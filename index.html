@@ -190,14 +190,18 @@ body {
         background: #3074a4;
     }
 
-
+/*    #slider ::range-track {
+    background: #3071a9;
+    width: 100%;
+}
+*/
 
 </style>
 <nav id="menu"><p>Layers:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
         <label id='yearlable'></label>
-        <input id='slider' type='range' min='1960' max='2016' step='1' value='2000' />        
+        <input id='slider' type='range' min='1960' max='2016' step='1' value='1964' />        
     </div>
 <div class='map-overlay-infobox'>
         <div class='map-overlay-infobox-content'>
@@ -249,30 +253,51 @@ map.on('click', function (e) {
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
 
+    var yearvar = document.getElementById("slider").value;
+    var yearplus1N = Number(yearvar);
+    var yearminus1N = Number(yearvar) - 1;
+    var yearplus1 = yearplus1N.toString();
+    var yearminus1 = yearminus1N.toString();
+
 $(document).ready(function() {
     console.log("ready!");
+    // console.log(yearplus1N);
+    // console.log(yearminus1N);
+    // console.log(yearplus1);
+    // console.log(yearminus1);    
 
     function filterBy(year) {
+        var yearvar = document.getElementById("slider").value;
+        var yearplus1N = Number(yearvar) + 1;
+        var yearminus1N = Number(yearvar) - 1;
+        var yearplus2N = Number(yearvar) + 2;
+        var yearminus2N = Number(yearvar) - 2;
+        var yearplus1 = yearplus1N.toString();
+        var yearminus1 = yearminus1N.toString();
+        var yearplus2 = yearplus2N.toString();
+        var yearminus2 = yearminus2N.toString();
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
         map.setFilter('waterlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                //Water timeline
-        //map.setFilter('forestlayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);             //Forest timeline
-        //map.setFilter('grasslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Grass timeline
         map.setFilter('waysdataset', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);               //Roads timeline
         map.setFilter('waysdataset_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);          //Roads timeline
         map.setFilter('pois', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('sports_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
         map.setFilter('forestcampus', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);                      //Roads timeline
+        map.setFilter('photos', [ "any", ['==', 'date', year], ['==', 'date', yearplus1], ['==', 'date', yearminus1], ['==', 'date', yearplus2], ['==', 'date', yearminus2]]);                      //photo_pois timeline
         
         // Set the label above the selecor to the year
         document.getElementById('yearlable').textContent = year;
     }
 
+
+
+
     map.on('load', function test() {
         // Set filter to first year of the year
-        filterBy("" + 2000 + "");
+        filterBy("" + 1964 + "");
 
         document.getElementById('slider').addEventListener('input', function(e) {
             var year = "" + parseInt(e.target.value, 10) + "";
