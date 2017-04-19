@@ -40,15 +40,19 @@ body {
     font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
     color: black;
     position: absolute;
-    top: 0px;
+    top: 10px;
+    left: 27px;
     padding: 0px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    background-color: rgb(255,255,240);
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+    background-color: rgba(255, 255, 255, 0.8);
     width: 16.6667%;
     width: calc(100% / 4);
-    height: calc(100vh - 105px - 37px);
+    max-height: calc(100vh - 105px - 37px - (10px * 2) - 37px - 15px);
     /*background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png);*/
     overflow: scroll;
+    -webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s, height 1s;
+
 }
 
 .map-overlay-infobox-content {
@@ -62,7 +66,6 @@ body {
     right: 53px;
     padding: 10px;
     background-color: transparent;
-    width: 100%
     text-align: center;
     font-family: sans-serif;
     font-size: 50px;
@@ -73,17 +76,17 @@ body {
 .map-overlay-eventbox {
     position: absolute;
     bottom: 10px;
-    right: calc(75vw / 2 - 350px);
+    right: calc((100vw / 2) - (82vw / 2));
     padding: 3px;
     background-color: rgba(255, 255, 240, 0.5);
-    width: 110%;
-    max-width: 700px;
+    width: 82vw;
+    /*max-width: 90vw;*/
     text-align: center;
     font-family: sans-serif;
     font-size: 27px;
     text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.5);
     color: rgba(50, 50, 50, 1);
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
     display: inline;
 }
 
@@ -164,10 +167,8 @@ padding-bottom: 1em;
 
 
 
-.btn_div {
-  /*width: 100%;*/
 
-}
+
 
 .info_btn {
   -webkit-border-radius: 5;
@@ -180,6 +181,9 @@ padding-bottom: 1em;
   padding: 10px 20px 10px 20px;
   border: dotted #1f628d 0px;
   text-decoration: none;
+    display:block;
+    margin: 0 auto;
+
 }
 
 .info_btn:hover {
@@ -197,7 +201,7 @@ padding-bottom: 1em;
         width: auto;
         /*border: 1px solid rgba(0,0,0,0.4);*/
         font-family: 12px/20px 'Open Sans', sans-serif;
-        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
         line-height: 1em;
 
     }
@@ -267,12 +271,40 @@ padding-bottom: 1em;
       padding: 10px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
       background-color: rgba(255, 255, 240, 1);
+      width: 60vw;
     }
 
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
 
+#youtube_demo_button_div {
+  width: 100%;
+  left: 50%;
+}
 
+#close_youtube_demo {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
 
-
+}
 
 
 
@@ -374,7 +406,7 @@ input[type=range].slider:focus::-ms-fill-upper {
 
 
 </style>
-<nav id="menu"><p>Maps:</p></nav>
+<nav id="menu"><p>Scans:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
 <!--         <label id='yearlable'></label>
@@ -400,8 +432,12 @@ input[type=range].slider:focus::-ms-fill-upper {
             </div>
             <div class='infobox_info_div'>
                 <p id="infobox_info">
-                  <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'inline'">Demo</button></br></br>
-                  <b>Change the year by moving the slider at the bottom.</b></br>Click on the map features for more information.</br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br> </br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
+      For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br></br>
+                  <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'inline'">Demo Video</button></br></br></br></br>
+                  Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br></br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
+                  </br>
+            
+                
                 </p>
             </div>
         </div>
@@ -409,12 +445,16 @@ input[type=range].slider:focus::-ms-fill-upper {
     </div>
   <div class='map-overlay-yearbox'> <label id='yearlable'></label> </div>
   <div class='map-overlay-eventbox' id='map-overlay-eventbox'> <label id='eventlable'></label> </div>
-  <div id='youtube_demo'> 
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen></iframe> 
-    </br>
-      <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'none'">Done</button>
+      <div id='youtube_demo'> 
+      <div class='video-container'> 
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen></iframe> 
+      </div>  
+      </br>
+      <div id='youtube_demo_button_div'>
+          <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'none'">Done</button>
+      </div>
   </div>
-</div> 
+
 
 <!-- <pre id='features'></pre>
  -->
@@ -433,6 +473,7 @@ var map = new mapboxgl.Map({
     maxBounds: [[6.805686225891112, 52.223266707775876], [6.891775856018066, 52.264813883912355]],
     minZoom: 14
 });
+
 
 // function myFunction() {
 //     document.getElementById("slider").stepUp(1);
@@ -473,6 +514,11 @@ map.addControl(new mapboxgl.NavigationControl());
 
 $(document).ready(function() {
     console.log("ready!");
+        filterBy("" + 2002 + "");
+        document.getElementById('slider').addEventListener('input', function(e) {
+            var year = "" + parseInt(e.target.value, 10) + "";
+            filterBy(year);
+        });
 
     function filterBy(year) {
         var yearvar = document.getElementById("slider").value;
@@ -527,13 +573,11 @@ $(document).ready(function() {
 
 
     map.on('load', function test() {
-        // Set filter to first year of the year
-        filterBy("" + 2002 + "");
+        //Set filter to first year of the year
+        //filterBy("" + 2002 + "");
+        //This has nowbeen doen earlyer in the code
 
-        document.getElementById('slider').addEventListener('change', function(e) {
-            var year = "" + parseInt(e.target.value, 10) + "";
-            filterBy(year);
-        });
+        
     });
 
 
@@ -553,12 +597,15 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
     link.textContent = id;
 
     link.onclick = function (e) {
+        //The following commented lines are some experiments to make the time jump to a year and to hide the infobox
+        // var year = id;
+        // filterBy(year);
+        //$('#map-overlay-infobox').hide();
         var clickedLayer = this.textContent;
         e.preventDefault();
         e.stopPropagation();
-
         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
+        
         if (visibility === 'visible') {
             map.setLayoutProperty(clickedLayer, 'visibility', 'none');
             this.className = '';
@@ -576,7 +623,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
         zoom: 14.3,
         pitch: 0,
         bearing: 14,
-        speed: 0.3, // make the flying slow
+        speed: 0.2, // make the flying slow
         curve: 1, // change the speed at which it zooms out
     });
 </script>
