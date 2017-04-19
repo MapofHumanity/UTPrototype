@@ -10,7 +10,7 @@ body {
 
 #map {
     width: 100%;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 105px - 37px);
     margin: 0px;
 /*    margin-bottom: 45px;
 */}
@@ -19,14 +19,15 @@ body {
     cursor: crosshair;
 }
 
+
 .map-overlay-yearsliderbox {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
     width: 100%;
     height: 45px;
-    bottom: 0;
-    left: 0;
-    top: calc(100vh - 90px - 45px);
+    bottom: 0px;
+    left: 0px;
+    top: calc(100vh - 105px - 37px);
 }
 
 .map-overlay-yearsliderbox {
@@ -36,7 +37,7 @@ body {
 }
 
 .map-overlay-infobox {
-    font:  'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
     color: black;
     position: absolute;
     top: 0px;
@@ -45,26 +46,53 @@ body {
     background-color: rgb(255,255,240);
     width: 16.6667%;
     width: calc(100% / 4);
-    height: calc(100vh - 90px - 45px);
-    background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png);
+    height: calc(100vh - 105px - 37px);
+    /*background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png);*/
     overflow: scroll;
 }
 
 .map-overlay-infobox-content {
+      font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+
 }
     
+.map-overlay-yearbox {
+    position: absolute;
+    top: 0px;
+    right: 53px;
+    padding: 10px;
+    background-color: transparent;
+    width: 100%
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.5);
+    color: rgba(50, 50, 50, 0.7);
+}
+
 .map-overlay-eventbox {
     position: absolute;
-    /*width: 200px;*/
-    top: 10px;
-    right: 25px;
-    padding: 10px;
-    background-color: #fff;
-    border-style: solid;
-    border-width: 1px;
-    width: 30%; /* fallback for non-calc() browsers */
-    width: calc(100% / 3);
+    bottom: 10px;
+    right: calc(75vw / 2 - 350px);
+    padding: 3px;
+    background-color: rgba(255, 255, 240, 0.5);
+    width: 110%;
+    max-width: 700px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 27px;
+    text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.5);
+    color: rgba(50, 50, 50, 1);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    display: inline;
 }
+
+
+
+
+
+
+
 
 
 .map-overlay-yearsliderbox h2 {
@@ -86,12 +114,12 @@ body {
 
 }
 
-#yearlable {
+/*#yearlable {
     color: white; 
-    font-size: 200%; 
+    font-size: 23px; 
     text-align: center;
     margin-left: 50%
-}
+}*/
 
 #slider { 
     position:relative;
@@ -106,6 +134,7 @@ body {
 
 .infobox_info_div {
     padding: 15px;
+    font-family: sans-serif;
 }
 
 #infobox_info {
@@ -113,9 +142,32 @@ body {
 }
 
 #infobox_date {
+    font-size: 22px;
+    -webkit-margin-after: -0.7em;
+  }
 
+#infobox_name {
+    font-size: 24px;
+    text-align: center;
 }
 
+/*.infobox_name_div {
+background-color: #e45555 !important;
+margin: 0px;
+padding-top: 1em;
+padding-bottom: 1em;
+}*/
+
+
+
+
+
+
+
+.btn_div {
+  /*width: 100%;*/
+
+}
 
 .info_btn {
   -webkit-border-radius: 5;
@@ -139,7 +191,7 @@ body {
         background: #fff;
         position: absolute;
         z-index: 1;
-        bottom: 55px;
+        bottom: 10px;
         right: 27px;
         border-radius: 3px;
         width: auto;
@@ -192,108 +244,39 @@ body {
         background: #3074a4;
     }
 
-/*    #slider ::range-track {
-    background: #3071a9;
-    width: 100%;
-}
-*/
+    .h_iframe {
+      position: relative; 
+      padding-top: 56%;
+    }
 
-/*input[type=range] {
-  -webkit-appearance: none;
-    display: inline-block;
-    width: 90%;
-    position: relative;
-    margin: 0;
-    margin-top: 8px;
-    margin-left: 5%;
-    cursor: ew-resize;
-    padding-top: -45px;
+    .h_iframe iframe {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%; 
+      height:100%;
+    }
 
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 9px;  
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;   
-    background: rgb(199,199,199);
-  border-radius: 25px;
-  border: 0px solid #000101;
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border: 0px solid #000000;
-  height: 16px;
-  width: 39px;
-  border-radius: 7px;
-  background: #e45555;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -3.6px;
-}
+    #youtube_demo {
+      display: none;
+      position: absolute;
+      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 240, 1);
+    }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgb(199,199,199);
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 9px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  background: rgb(199,199,199);
-  border-radius: 25px;
-  border: 0px solid #000101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border: 0px solid #000000;
-  height: 20px;
-  width: 39px;
-  border-radius: 7px;
-  background: #e45555;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 9px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  border-width: 39px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: rgb(199,199,199);
-  border: 0px solid #000101;
-  border-radius: 50px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: rgb(199,199,199);
-  border: 0px solid #000101;
-  border-radius: 50px;
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border: 0px solid #000000;
-  height: 20px;
-  width: 39px;
-  border-radius: 7px;
-  background: #e45555;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: rgb(199,199,199);
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: rgb(199,199,199);
-}*/
+
+
+
+
+
+
+
+
 
 input[type=range].slider {
   -webkit-appearance: none;
@@ -301,7 +284,7 @@ input[type=range].slider {
     width: 90%;
     position: relative;
     margin: 0;
-    margin-top: 8px;
+    margin-top: 20px;
     margin-left: 5% !important;
     cursor: ew-resize;
     padding-top: -45px;
@@ -389,50 +372,66 @@ input[type=range].slider:focus::-ms-fill-upper {
 
 
 
+
 </style>
-<nav id="menu"><p>Layers:</p></nav>
+<nav id="menu"><p>Maps:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
-        <label id='yearlable'></label>
-<!--         <button onclick="myFunction()">  +1  </button> -->
-        <input  id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2016'/>        
+<!--         <label id='yearlable'></label>
+ --><!--         <button onclick="myFunction()">  +1  </button> -->
+        <input  id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002'/>        
     </div>
 <div class='map-overlay-infobox'>
         <div class='map-overlay-infobox-content'>
+                  <div class='infobox_name_div'>
+                      <p id="infobox_name">UT Campus Prototype <br><br> 
+<!--                           <div class="h_iframe">
+                              <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen>
+                             </iframe>
+                         </div>  
+ -->                      </p>
+                  </div>
             <div class='infobox_img_div'>
                 <a id="infobox_imgurl" href="" target="_blank"><img id="infobox_img" src="" style="max-width: 100%; max-height: 100%;"></a>
             </div>
-            <div class='infobox_name_div'>
-                <p id="infobox_name" style='font-size: 200%; text-align: center;'>UT Campus Prototype</p>
-            </div>
+    
             <div class='infobox_date_div'>
                 <p id="infobox_date" style='text-align: center;'></p>
             </div>
             <div class='infobox_info_div'>
-                <p id="infobox_info">Click on the map features for more information.</br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br></br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br> <a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
+                <p id="infobox_info">
+                  <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'inline'">Demo</button></br></br>
+                  <b>Change the year by moving the slider at the bottom.</b></br>Click on the map features for more information.</br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br> </br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
                 </p>
             </div>
         </div>
         <div class='infobox_howto_div'></div>
-
-</div>
-
-<!-- <div class='map-overlay-eventbox'>
-        <label id='infobox'>2002: brandde een deel van de Cubicus af door brandstichting.</label>
     </div>
+  <div class='map-overlay-yearbox'> <label id='yearlable'></label> </div>
+  <div class='map-overlay-eventbox' id='map-overlay-eventbox'> <label id='eventlable'></label> </div>
+  <div id='youtube_demo'> 
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen></iframe> 
+    </br>
+      <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'none'">Done</button>
+  </div>
 </div> 
-<pre id='features'></pre>-->
+
+<!-- <pre id='features'></pre>
+ -->
 <script>
+$('#map-overlay-eventbox').hide();
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFhbnZyIiwiYSI6ImNpdTJmczN3djAwMHEyeXBpNGVndWtuYXEifQ.GYZf7r9gTfQL3W-GpmmJ3A';
 
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg',
     center: [6.85220718383789, 52.24346350501319],
-    zoom: 13,
+    zoom: 16,
     bearing: 10,
     pitch: 20,
-    maxBounds: [[6.707661056518555, 52.184750061441355], [6.951517639160156, 52.30476134255271]]
+    maxBounds: [[6.805686225891112, 52.223266707775876], [6.891775856018066, 52.264813883912355]],
+    minZoom: 14
 });
 
 // function myFunction() {
@@ -440,6 +439,8 @@ var map = new mapboxgl.Map({
 //         console.log("+1 test!");
 
 // }
+
+
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {});
@@ -452,6 +453,21 @@ map.on('click', function (e) {
     document.getElementById('infobox_info').innerHTML = (feature.properties.info);
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
+
+map.addControl(new mapboxgl.NavigationControl());
+
+
+// map.on('load', function () {
+//     // Change the cursor to a pointer when the mouse is over the places layer.
+//     map.on('mouseenter', 'pois', function () {
+//         map.getCanvas().style.cursor = 'pointer';
+//     });
+
+//     // Change it back to a pointer when it leaves.
+//     map.on('mouseleave', 'pois', function () {
+//         map.getCanvas().style.cursor = '';
+//     });
+// });
 
 
 
@@ -482,59 +498,85 @@ $(document).ready(function() {
         map.setFilter('photos', [ "any", ['==', 'date', year], ['==', 'date', yearplus1], ['==', 'date', yearminus1], ['==', 'date', yearplus2], ['==', 'date', yearminus2]]);                      //photo_pois timeline
         
         // Set the label above the selecor to the year
+        //document.getElementById('yearlable').textContent = year;
         document.getElementById('yearlable').textContent = year;
+
+        if (year == 1960) {
+          document.getElementById('eventlable').textContent = "1960: The Drienerlo estate";
+          $('#map-overlay-eventbox').show(); };
+        if (year == 1961) {
+          document.getElementById('eventlable').textContent = "1961: Official announcement of the THT";
+          $('#map-overlay-eventbox').show(); };
+        if (year == 1962) {
+          document.getElementById('eventlable').textContent = "1962: Start of the construction works";
+          $('#map-overlay-eventbox').show(); };
+        if (year == 1964) {
+          document.getElementById('eventlable').textContent = "1964: The first students arrive!";
+          $('#map-overlay-eventbox').show(); };
+        if (year == 1986) {
+          document.getElementById('eventlable').textContent = "1986: The THT becomes the University of Twente";
+          $('#map-overlay-eventbox').show(); };
+        if (year == 2002) {
+          document.getElementById('eventlable').textContent = "2002: Fire in the Cubicus destroying the east wing";
+          $('#map-overlay-eventbox').show(); };
+
+        if (year != 1986 && year != 1961 && year != 1962 && year != 1964 && year != 2002)  {
+          document.getElementById('eventlable').textContent = "";
+          $('#map-overlay-eventbox').hide(); };
     }
 
 
     map.on('load', function test() {
         // Set filter to first year of the year
-        filterBy("" + 2016 + "");
+        filterBy("" + 2002 + "");
 
-        document.getElementById('slider').addEventListener('input', function(e) {
+        document.getElementById('slider').addEventListener('change', function(e) {
             var year = "" + parseInt(e.target.value, 10) + "";
             filterBy(year);
         });
     });
 
+
+
+
+});
+//The values in this variable are the layer names that will have a toggle.
+var toggleableLayerIds = ['1960', '1963', '1965', '1968', '2003' ];
+
+//The following code is to creatie the  buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
+for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = '';
+    link.textContent = id;
+
+    link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+    };
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
+
     map.flyTo({
         center: [6.85220718383789, 52.24346350501319],
-        zoom: 14,
+        zoom: 14.3,
         pitch: 0,
-        bearing: 15,
-        speed: 0.5, // make the flying slow
+        bearing: 14,
+        speed: 0.3, // make the flying slow
         curve: 1, // change the speed at which it zooms out
     });
-
-    //The values in this variable are the layer names that will have a toggle.
-    var toggleableLayerIds = [ '1963' ];
-
-    //The following code is to creatie the  buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
-    for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
-        var id = toggleableLayerIds[i];
-
-        var link = document.createElement('a');
-        link.href = '#';
-        link.className = '';
-        link.textContent = id;
-
-        link.onclick = function (e) {
-            var clickedLayer = this.textContent;
-            e.preventDefault();
-            e.stopPropagation();
-
-            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-            if (visibility === 'visible') {
-                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                this.className = '';
-            } else {
-                this.className = 'active';
-                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-            }
-        };
-
-        var layers = document.getElementById('menu');
-        layers.appendChild(link);
-    }
-});
 </script>
