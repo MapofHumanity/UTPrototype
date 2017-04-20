@@ -396,7 +396,7 @@ input[type=range].slider:focus::-ms-fill-upper {
             </div>
             <div class='infobox_info_div'>
                 <p id="infobox_info">
-                  <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'inline'">Demo Video</button></br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br></br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br></br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
+                  <a href="https://youtu.be/s80a45d8Ids" target="_blank"><button type="button" class="info_btn">Demo Video</button></a></br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br></br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br></br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
                 </p>
             </div>
         </div>
@@ -460,11 +460,6 @@ map.addControl(new mapboxgl.NavigationControl());
 // });
 $(document).ready(function() {
     console.log("ready!");
-        filterBy("" + 2002 + "");
-        document.getElementById('slider').addEventListener('input', function(e) {
-            var year = "" + parseInt(e.target.value, 10) + "";
-            filterBy(year);
-        });
     function filterBy(year) {
         var yearvar = document.getElementById("slider").value;
         var yearplus1N = Number(yearvar) + 1;
@@ -516,7 +511,20 @@ $(document).ready(function() {
         //Set filter to first year of the year
         //filterBy("" + 2002 + "");
         //This has nowbeen doen earlyer in the code
-        
+        filterBy("" + 2002 + "");
+        document.getElementById('slider').addEventListener('input', function(e) {
+            var year = "" + parseInt(e.target.value, 10) + "";
+            filterBy(year);
+        });
+            map.flyTo({
+        center: [6.85220718383789, 52.24346350501319],
+        zoom: 14.3,
+        pitch: 0,
+        bearing: 14,
+        speed: 0.4, // make the flying slow
+        curve: 1, // change the speed at which it zooms out
+    });
+
     });
 });
 //The values in this variable are the layer names that will have a toggle.
@@ -549,12 +557,5 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
-    map.flyTo({
-        center: [6.85220718383789, 52.24346350501319],
-        zoom: 14.3,
-        pitch: 0,
-        bearing: 14,
-        speed: 0.2, // make the flying slow
-        curve: 1, // change the speed at which it zooms out
-    });
+
 </script> 
