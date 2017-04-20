@@ -1,68 +1,66 @@
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
 <style>
-
 body {
     display: block;
     margin: 0px;
 }
 
 #map {
-    width: 100%;
-    height: calc(100vh - 105px - 37px);
-    margin: 0px;
+    position: absolute !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    width: 100vw !important;
+    height: 100vh !important;
 /*    margin-bottom: 45px;
 */}
-
 #map canvas {
     cursor: crosshair;
 }
-
-
 .map-overlay-yearsliderbox {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     position: absolute;
-    width: 100%;
-    height: 45px;
-    bottom: 0px;
-    left: 0px;
-    top: calc(100vh - 105px - 37px);
+    width: 90vw;
+    height: 0px;
+    left: 50%;
+    transform: translate(-45%,  0%);
+    /*top: calc(100vh - 105px - 37px);*/
+    bottom: 10px;
 }
-
 .map-overlay-yearsliderbox {
-    background-color: #4E4E56;
-    height: 45px;
+    /*background-color: rgba(78, 78, 86, 0.7);*/
+    height: 0px;
     padding: 0px;
-}
+    bottom: 35px;
 
+}
 .map-overlay-infobox {
     font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
     color: black;
     position: absolute;
     top: 10px;
-    left: 27px;
+    left: 10px;
     padding: 0px;
     box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
     background-color: rgba(255, 255, 255, 0.8);
-    width: 16.6667%;
+    width: 25%;
     width: calc(100% / 4);
-    max-height: calc(100vh - 105px - 37px - (10px * 2) - 37px - 15px);
+    max-width: 400px;
+    max-height: calc(100vh - 65px);
     /*background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/ricepaper2.png);*/
     overflow: scroll;
     -webkit-transition: width 1s, height 1s; /* For Safari 3.1 to 6.0 */
     transition: width 1s, height 1s;
-
 }
-
 .map-overlay-infobox-content {
       font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
-
 }
     
 .map-overlay-yearbox {
     position: absolute;
-    top: 0px;
+    top: 15px;
     right: 53px;
     padding: 10px;
     background-color: transparent;
@@ -72,14 +70,13 @@ body {
     text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.5);
     color: rgba(50, 50, 50, 0.7);
 }
-
 .map-overlay-eventbox {
     position: absolute;
-    bottom: 10px;
-    right: calc((100vw / 2) - (82vw / 2));
+    /*bottom: calc(45px + 10px + 10px);*/
+    /*right: calc((100vw / 2) - (82vw / 2));*/
     padding: 3px;
     background-color: rgba(255, 255, 240, 0.5);
-    width: 82vw;
+    /*width: 82vw;*/
     /*max-width: 90vw;*/
     text-align: center;
     font-family: sans-serif;
@@ -88,22 +85,19 @@ body {
     color: rgba(50, 50, 50, 1);
     box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
     display: inline;
+    margin: auto;
+    /*top: 50%;*/
+    left: 50%;
+    transform: translate(-50%,  0%);
+    top: 10px;
+    max-width: calc(50vw - (10px * 2) - (10px * 2)) ;
+
 }
-
-
-
-
-
-
-
-
-
 .map-overlay-yearsliderbox h2 {
     line-height: 24px;
     display: block;
-    margin: 0 0 10px;
+    margin: 0 0 100px;
 }
-
 .map-overlay-yearsliderbox input {
 /*    display: inline-block;
     width: 90%;
@@ -113,20 +107,16 @@ body {
     cursor: ew-resize;
     padding-top: -45px;
 */
-    background-color: #4E4E56;
-
+    background-color: rgba(0, 0, 0, 0);
 }
-
 /*#yearlable {
     color: white; 
     font-size: 23px; 
     text-align: center;
     margin-left: 50%
 }*/
-
 #slider { 
     position:relative;
-
 }
 #slider:after {
     content:'';
@@ -134,42 +124,27 @@ body {
     top:-10px; bottom:-10px; 
     left:-10px; right:-10px; 
 }
-
 .infobox_info_div {
     padding: 15px;
     font-family: sans-serif;
 }
-
 #infobox_info {
     text-align: justify;
 }
-
 #infobox_date {
     font-size: 22px;
     -webkit-margin-after: -0.7em;
   }
-
 #infobox_name {
     font-size: 24px;
     text-align: center;
 }
-
 /*.infobox_name_div {
 background-color: #e45555 !important;
 margin: 0px;
 padding-top: 1em;
 padding-bottom: 1em;
 }*/
-
-
-
-
-
-
-
-
-
-
 .info_btn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -183,29 +158,24 @@ padding-bottom: 1em;
   text-decoration: none;
     display:block;
     margin: 0 auto;
-
 }
-
 .info_btn:hover {
   background: #e45555;
   text-decoration: none;
 }
-
     #menu {
         background: #fff;
         position: absolute;
         z-index: 1;
         bottom: 10px;
-        right: 27px;
+        right: 10px;
         border-radius: 3px;
         width: auto;
         /*border: 1px solid rgba(0,0,0,0.4);*/
         font-family: 12px/20px 'Open Sans', sans-serif;
         box-shadow: 2px 2px 20px rgba(0,0,0,0.3);
         line-height: 1em;
-
     }
-
     #menu a {
         font-size: 13px;
         color: #404040;
@@ -229,30 +199,24 @@ padding-bottom: 1em;
         border-bottom: 1px solid rgba(0,0,0,0.25);
         text-align: center;
     }
-
     #menu a:last-child {
         border: none;
     }
-
     #menu a:hover {
         background-color: #3887be;
         color: #404040;
     }
-
     #menu a.active {
         background-color: #3887be;
         color: #ffffff;
     }
-
     #menu a.active:hover {
         background: #3074a4;
     }
-
     .h_iframe {
       position: relative; 
       padding-top: 56%;
     }
-
     .h_iframe iframe {
       position:absolute;
       top:0;
@@ -260,7 +224,6 @@ padding-bottom: 1em;
       width:100%; 
       height:100%;
     }
-
     #youtube_demo {
       display: none;
       position: absolute;
@@ -273,7 +236,6 @@ padding-bottom: 1em;
       background-color: rgba(255, 255, 240, 1);
       width: 60vw;
     }
-
 .video-container {
 position: relative;
 padding-bottom: 56.25%;
@@ -289,12 +251,10 @@ left: 0;
 width: 100%;
 height: 100%;
 }
-
 #youtube_demo_button_div {
   width: 100%;
   left: 50%;
 }
-
 #close_youtube_demo {
   display: none;
   position: absolute;
@@ -303,21 +263,15 @@ height: 100%;
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-
 }
-
-
-
-
-
 input[type=range].slider {
   -webkit-appearance: none;
     display: inline-block;
     width: 90%;
     position: relative;
     margin: 0;
-    margin-top: 20px;
-    margin-left: 5% !important;
+    margin-top: 0px;
+    margin-left: 0px;
     cursor: ew-resize;
     padding-top: -45px;
 }
@@ -402,10 +356,20 @@ input[type=range].slider:focus::-ms-fill-upper {
   background: rgba(199, 199, 199, 0.61);
 }
 
+.fakebody {
+    position: absolute !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
 
-
+#siteWrapper {
+  line-height: 1.3em !important;
+}
 
 </style>
+<div class="fakebody">
 <nav id="menu"><p>Scans:</p></nav>
 <div id='map'></div>
 <div class='map-overlay-yearsliderbox' id='yearsliderbox'>
@@ -458,11 +422,11 @@ input[type=range].slider:focus::-ms-fill-upper {
 
 <!-- <pre id='features'></pre>
  -->
+
+</div>
 <script>
 $('#map-overlay-eventbox').hide();
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGFhbnZyIiwiYSI6ImNpdTJmczN3djAwMHEyeXBpNGVndWtuYXEifQ.GYZf7r9gTfQL3W-GpmmJ3A';
-
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg',
@@ -473,16 +437,10 @@ var map = new mapboxgl.Map({
     maxBounds: [[6.805686225891112, 52.223266707775876], [6.891775856018066, 52.264813883912355]],
     minZoom: 14
 });
-
-
 // function myFunction() {
 //     document.getElementById("slider").stepUp(1);
 //         console.log("+1 test!");
-
 // }
-
-
-
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {});
     if (!features.length) {return;}
@@ -494,24 +452,17 @@ map.on('click', function (e) {
     document.getElementById('infobox_info').innerHTML = (feature.properties.info);
     document.getElementById('infobox_date').innerHTML = (feature.properties.start_date + " - " +feature.properties.end_date);
 });
-
 map.addControl(new mapboxgl.NavigationControl());
-
-
 // map.on('load', function () {
 //     // Change the cursor to a pointer when the mouse is over the places layer.
 //     map.on('mouseenter', 'pois', function () {
 //         map.getCanvas().style.cursor = 'pointer';
 //     });
-
 //     // Change it back to a pointer when it leaves.
 //     map.on('mouseleave', 'pois', function () {
 //         map.getCanvas().style.cursor = '';
 //     });
 // });
-
-
-
 $(document).ready(function() {
     console.log("ready!");
         filterBy("" + 2002 + "");
@@ -519,7 +470,6 @@ $(document).ready(function() {
             var year = "" + parseInt(e.target.value, 10) + "";
             filterBy(year);
         });
-
     function filterBy(year) {
         var yearvar = document.getElementById("slider").value;
         var yearplus1N = Number(yearvar) + 1;
@@ -530,7 +480,6 @@ $(document).ready(function() {
         var yearminus1 = yearminus1N.toString();
         var yearplus2 = yearplus2N.toString();
         var yearminus2 = yearminus2N.toString();
-
         map.setFilter('buildingslayer', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_name', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);            //Buildings timeline
         map.setFilter('buildingslayer_shadow', [ "all", ['<=', 'start_date', year], ['>=', 'end_date', year]]);       //Buildings shadow timeline
@@ -546,7 +495,6 @@ $(document).ready(function() {
         // Set the label above the selecor to the year
         //document.getElementById('yearlable').textContent = year;
         document.getElementById('yearlable').textContent = year;
-
         if (year == 1960) {
           document.getElementById('eventlable').textContent = "1960: The Drienerlo estate";
           $('#map-overlay-eventbox').show(); };
@@ -565,37 +513,26 @@ $(document).ready(function() {
         if (year == 2002) {
           document.getElementById('eventlable').textContent = "2002: Fire in the Cubicus destroying the east wing";
           $('#map-overlay-eventbox').show(); };
-
         if (year != 1986 && year != 1961 && year != 1962 && year != 1964 && year != 2002)  {
           document.getElementById('eventlable').textContent = "";
           $('#map-overlay-eventbox').hide(); };
     }
-
-
     map.on('load', function test() {
         //Set filter to first year of the year
         //filterBy("" + 2002 + "");
         //This has nowbeen doen earlyer in the code
-
         
     });
-
-
-
-
 });
 //The values in this variable are the layer names that will have a toggle.
 var toggleableLayerIds = ['1960', '1963', '1965', '1968', '2003' ];
-
 //The following code is to creatie the  buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
 for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
     var id = toggleableLayerIds[i];
-
     var link = document.createElement('a');
     link.href = '#';
     link.className = '';
     link.textContent = id;
-
     link.onclick = function (e) {
         //The following commented lines are some experiments to make the time jump to a year and to hide the infobox
         // var year = id;
@@ -617,7 +554,6 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
-
     map.flyTo({
         center: [6.85220718383789, 52.24346350501319],
         zoom: 14.3,
@@ -626,4 +562,4 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
         speed: 0.2, // make the flying slow
         curve: 1, // change the speed at which it zooms out
     });
-</script>
+</script> 
