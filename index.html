@@ -9,7 +9,7 @@ body {
 }
 
 #map {
-    position: absolute !important;
+    position: absolute; !important;
     top: 0px !important;
     bottom: 0px !important;
     width: 100vw !important;
@@ -21,7 +21,7 @@ body {
 }
 .map-overlay-yearsliderbox {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    position: absolute;
+    position: fixed;
     width: 90vw;
     height: 0px;
     left: 50%;
@@ -39,7 +39,7 @@ body {
 .map-overlay-infobox {
     font:  'Helvetica Neue', Arial, Helvetica, sans-serif !important;
     color: black;
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 10px;
     padding: 0px;
@@ -59,7 +59,7 @@ body {
 }
     
 .map-overlay-yearbox {
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 53px;
     padding: 10px;
@@ -71,7 +71,7 @@ body {
     color: rgba(50, 50, 50, 0.7);
 }
 .map-overlay-eventbox {
-    position: absolute;
+    position: fixed;
     /*bottom: calc(45px + 10px + 10px);*/
     /*right: calc((100vw / 2) - (82vw / 2));*/
     padding: 3px;
@@ -165,7 +165,7 @@ padding-bottom: 1em;
 }
     #menu {
         background: #fff;
-        position: absolute;
+        position: fixed;
         z-index: 1;
         bottom: 10px;
         right: 10px;
@@ -225,21 +225,75 @@ padding-bottom: 1em;
       height:100%;
     }
     #youtube_demo {
-      display: none;
-      position: absolute;
+      display: inline;
+      position: fixed;
       margin: auto;
+      padding: 0px;
+      box-shadow: 0px 0px 1000px rgba(0, 0, 0, 0.5);
+      background-color: rgba(255, 255, 240, 1);
+      width: 70vw;
+      z-index: 3;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      padding: 10px;
-      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
-      background-color: rgba(255, 255, 240, 1);
-      width: 60vw;
+
     }
+
+    #contribute_iframe {
+      position: fixed;
+      width: 80vw;
+      height: 80vh;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #youtube_demo_background {
+      display: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2
+    }
+    
+    #contribute_iframe_background {
+      display: none;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2
+    }
+
+    #youtube_demo_background_btn {
+      background: transparent;
+      border: none;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #contribute_iframe_background_btn {
+      background: transparent;
+      border: none;
+      width: 100vw;
+      height: 100vh;
+    }
+
+
+
 .video-container {
-position: relative;
-padding-bottom: 56.25%;
-padding-top: 30px; height: 0; overflow: hidden;
+position: fixed;
+/*padding-bottom: 56.25%;*/
+padding-top: 30px; 
+height: 45vw;
+width: 80vw;
+overflow: hidden;
+z-index: 3;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
 }
  
 .video-container iframe,
@@ -253,7 +307,11 @@ height: 100%;
 }
 #youtube_demo_button_div {
   width: 100%;
-  left: 50%;
+  padding: 5px;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  justify-content: space-around;
 }
 #close_youtube_demo {
   display: none;
@@ -321,7 +379,7 @@ input[type=range].slider::-moz-range-thumb {
 }
 input[type=range].slider::-ms-track {
   width: 100%;
-  height: 7.3px;
+  height: 36px;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
@@ -368,6 +426,51 @@ input[type=range].slider:focus::-ms-fill-upper {
   line-height: 1.3em !important;
 }
 
+.mapboxgl-ctrl-top-right {
+  position: fixed;
+}
+
+.content_menu {
+  width: 100%;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(218, 99, 93);
+}
+
+.content_menu_btn {
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(218, 99, 93);;
+  border: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: rgb(256, 256, 256);
+  color: rgb(256, 256, 256);
+  font-size: 15px;
+}
+
+.done_btn {
+  padding: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 5px;
+  background-color: rgb(218, 99, 93);;
+  border: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: rgb(200, 100, 90);
+  color: rgb(256, 256, 256);
+  font-size: 15px;
+  bottom: 10px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+
 </style>
 <div class="fakebody">
 <nav id="menu"><p>Scans:</p></nav>
@@ -378,14 +481,14 @@ input[type=range].slider:focus::-ms-fill-upper {
         <input  id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002'/>        
     </div>
 <div class='map-overlay-infobox'>
+    <div class="content_menu">
+        <a href="http://www.mapofhumanity.org/" target="_blank"><button type="button" class="content_menu_btn"  >Support us</button></a>
+        <button type="button" class="content_menu_btn" onclick="document.getElementById('youtube_demo_background').style.display = 'inline'">Demo video</button>
+        <button type="button" class="content_menu_btn" onclick="document.getElementById('contribute_iframe_background').style.display = 'inline'">Contribure</button>
+    </div>
         <div class='map-overlay-infobox-content'>
                   <div class='infobox_name_div'>
-                      <p id="infobox_name">UT Campus Prototype <br><br> 
-<!--                           <div class="h_iframe">
-                              <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen>
-                             </iframe>
-                         </div>  
- -->                      </p>
+                      <p id="infobox_name">UT Campus Prototype</p>
                   </div>
             <div class='infobox_img_div'>
                 <a id="infobox_imgurl" href="" target="_blank"><img id="infobox_img" src="" style="max-width: 100%; max-height: 100%;"></a>
@@ -396,22 +499,27 @@ input[type=range].slider:focus::-ms-fill-upper {
             </div>
             <div class='infobox_info_div'>
                 <p id="infobox_info">
-                  <a href="https://youtu.be/s80a45d8Ids" target="_blank"><button type="button" class="info_btn">Demo Video</button></a></br>For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.</br></br>Map of Humanity is participating in the UT challenge, <b>help us win</b> by voting for us!</br></br><a href="https://utchallenge.nl/candidate/details/14193/" target="_blank"><button class="info_btn" type="button">Vote for us!</button></a>
+                 For any questions or bugs feel free to use the <a href="https://app.purechat.com/w/MapofHumanity" style="text-decoration: underline;">chat box</a> or <a href="mailto:daan@mapofhumanity.org?Subject=I%20was%20looking%20at%20mapofhumanity.org/prototype" style="text-decoration: underline;">email me</a>.
                 </p>
             </div>
         </div>
         <div class='infobox_howto_div'></div>
     </div>
   <div class='map-overlay-yearbox'> <label id='yearlable'></label> </div>
+  
   <div class='map-overlay-eventbox' id='map-overlay-eventbox'> <label id='eventlable'></label> </div>
-      <div id='youtube_demo'> 
-      <div class='video-container'> 
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/QkS1VIVnRLk" frameborder="0" allowfullscreen></iframe> 
-      </div>  
-      </br>
-      <div id='youtube_demo_button_div'>
-          <button type="button" class="info_btn" onclick="document.getElementById('youtube_demo').style.display = 'none'">Done</button>
-      </div>
+    
+  <div id="youtube_demo_background"> <button id="youtube_demo_background_btn" type="button" onclick="document.getElementById('youtube_demo_background').style.display = 'none'"></button>
+        <div class='video-container'> 
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/s80a45d8Ids" frameborder="0" allowfullscreen></iframe> 
+        </div>  
+        <button type="button" class="done_btn" onclick="document.getElementById('youtube_demo_background').style.display = 'none'">Done</button>
+    </div>
+  <div id="contribute_iframe_background"> <button id="contribute_iframe_background_btn" type="button" onclick="ConfirmContributionFunction()"></button>
+    <div>
+      <iframe id="contribute_iframe" src="https://goo.gl/forms/ds2Hiqbr2O80l2p72"></iframe>
+      <button type="button" class="done_btn" onclick="ConfirmContributionFunction()">Contribution is done</button>
+    </div>
   </div>
 
 
@@ -556,6 +664,16 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
     };
     var layers = document.getElementById('menu');
     layers.appendChild(link);
+}
+
+function ConfirmContributionFunction() {
+    var txt;
+    var r = confirm("Did you press 'submit' at the bottom of the contribution?\nOK: I Submited my contribution or did not contribut.\nCancel: I forgot to submit my contribution.");
+    if (r == true) {
+        document.getElementById('contribute_iframe_background').style.display = 'none'
+    } else {
+        
+    }
 }
 
 </script> 
