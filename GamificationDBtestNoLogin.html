@@ -2,35 +2,56 @@
   <head></head>
   <body>
     <script>
-    function makeApiCall() {
-      var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1oEbpv_FX0a_vlJdZd-SAd8vHeOJEtr-RH_xUDnh26lM',  // TODO: Update placeholder value.
-
-        // The A1 notation of the values to retrieve.
-        range: 'Sheet1',  // TODO: Update placeholder value.
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-        //valueRenderOption: 'ValueRenderOption.FORMATTED_VALUE',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-        //dateTimeRenderOption: 'DateTimeRenderOption.SERIAL_NUMBER',  // TODO: Update placeholder value.
-      };
-
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-    }
+// =========== This code is working to read from spreadsheet =========
+// var xmlhttp = new XMLHttpRequest();
+// xmlhttp.open("GET", "https://sheets.googleapis.com/v4/spreadsheets/1oEbpv_FX0a_vlJdZd-SAd8vHeOJEtr-RH_xUDnh26lM/values/Sheet1?key=AIzaSyCbnJcEBTXOK_fK8dXh98ZS1sdzJmKASFo", true);
+// xmlhttp.send();
+// xmlhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) { photoDB = JSON.parse(this.responseText); console.log("" + photoDB.values);}
+// };
     </script>
 
-    This is placeholder text
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  /**
+   * Sample JavaScript code for sheets.spreadsheets.values.update
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/guides/code_samples#javascript
+   */
+
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyCbnJcEBTXOK_fK8dXh98ZS1sdzJmKASFo");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/sheets/v4/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded before calling this method.
+  function execute() {
+    return gapi.client.sheets.spreadsheets.values.update({
+      "spreadsheetId": "1oEbpv_FX0a_vlJdZd-SAd8vHeOJEtr-RH_xUDnh26lM",
+      "range": "Sheet1",
+      "valueInputOption": "RAW",
+      "resource": {
+        "values": [
+          [
+            "dgwdbw"
+          ]
+        ]
+      }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response");
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client");
+</script>
+<button onclick="loadClient()">load</button>
+<button onclick="execute()">execute</button>
+
+
+
+    This is placeholder text foor write
   </body>
 </html>
