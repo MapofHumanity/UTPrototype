@@ -12,6 +12,7 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
+            makeApiCall();
     function makeApiCall() {
       var params = {
         // The ID of the spreadsheet to retrieve data from.
@@ -70,7 +71,6 @@
 
     function updateSignInStatus(isSignedIn) {
       if (isSignedIn) {
-        makeApiCall();
       }
     }
 
