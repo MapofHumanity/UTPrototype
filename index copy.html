@@ -7,28 +7,15 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- add a script that is defered -->
-    <script type="text/javascript" src="script.js" defer></script>
 </head>
 
 <body>
     <div id='map'></div>
     <!-- top left -->
-    <div class="info-container">
-        <div class='overlay-info'>
-            <H1>History map of the University of Twente </H1>
-        </div>
-        <div class='overlay-info'>
-            <h2>About</h2>
-            <p> This map shows the history of the University of Twente from 1960 to 2015. The map is interactive. You
-                can move the map and zoom in and out. You can also use the slider to see the changes of the
-                campus over the years. </p>
-            <!-- add a heart in the text -->
-            <p> Made with <span style="color: #e25555;">&#9829;</span> by <a href="https://daan.vanramshor.st">Daan van
-                    Ramshorst</a></p>
-        </div>
-
+    <div class='overlay-info'>
+        <H1>Map of the history of the University of Twente </H1>
     </div>
+
     <!-- top middle -->
     <!-- <div class='map-overlay-eventbox' id='map-overlay-eventbox'>
     <label id='eventlable'></label>
@@ -42,7 +29,12 @@
         <input id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002' />
     </div>
 
+    <!-- bottom right -->
+    <!-- <nav id="areal-selection">
+        <p>Scans:</p>
+    </nav> -->
     <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>

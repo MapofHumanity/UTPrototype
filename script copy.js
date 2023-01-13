@@ -5,9 +5,9 @@ var map = new mapboxgl.Map({
   style: 'mapbox://styles/daanvr/ciw1eozkr00dd2jscswkbdfvg',
   center: [6.85220718383789, 52.24346350501319],
   zoom: 16,
-  // bearing: 10,
-  pitch: 30,
-  maxBounds: [[6.805686, 52.223266], [6.891775, 52.264813]],
+  bearing: 10,
+  pitch: 20,
+  maxBounds: [[6.805686225891112, 52.223266707775876], [6.891775856018066, 52.264813883912355]],
   minZoom: 14
 });
 
@@ -115,7 +115,7 @@ $(document).ready(function () {
       center: [6.85220718383789, 52.24346350501319],
       zoom: 14.3,
       pitch: 0,
-      // bearing: 14,
+      bearing: 14,
       speed: 0.4, // make the flying slow
       curve: 1, // change the speed at which it zooms out
     });
