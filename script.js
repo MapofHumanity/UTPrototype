@@ -41,7 +41,7 @@ map.addControl(new mapboxgl.NavigationControl());
 $(document).ready(function () {
   console.log("ready!");
   function filterBy(year) {
-    var yearvar = document.getElementById("slider").value;
+    var yearvar = document.getElementById("slider_input").value;
     var yearplus1N = Number(yearvar) + 1;
     var yearminus1N = Number(yearvar) - 1;
     var yearplus2N = Number(yearvar) + 2;
@@ -106,7 +106,7 @@ $(document).ready(function () {
     //This has nowbeen doen earlyer in the code
     filterBy("" + 2002 + "");
 
-    document.getElementById('slider').addEventListener('input', function (e) {
+    document.getElementById('slider_input').addEventListener('input', function (e) {
       var year = "" + parseInt(e.target.value, 10) + "";
       filterBy(year);
     });
@@ -155,3 +155,25 @@ for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the
   // layers.appendChild(link);
 }
 
+
+
+
+
+// custom js for slider
+
+const slider_input = document.getElementById('slider_input');
+const slider_thumb = document.getElementById('slider_thumb');
+const slider_line = document.getElementById('slider_line');
+
+function showSliderValue() {
+  slider_thumb.innerHTML = slider_input.value; // show value on thumb
+  const bulletPosition = ((slider_input.value - slider_input.min) / (slider_input.max - slider_input.min)); // calculate bullet position
+  const space = slider_input.offsetWidth - slider_thumb.offsetWidth; // calculate available space
+
+  slider_thumb.style.left = (bulletPosition * space) + 'px'; // set bullet position
+  // slider_line.style.width = slider_input.value + '%'; // set line length (not needed)
+}
+
+showSliderValue();
+window.addEventListener("resize", showSliderValue);
+slider_input.addEventListener('input', showSliderValue, false);

@@ -39,7 +39,14 @@
 
     <!-- bottom middle -->
     <div id='overlay-slider'>
-        <input id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002' />
+        <!-- <input id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002' /> -->
+        <div class="range-slider">
+            <div id="slider_thumb" class="range-slider_thumb"></div>
+            <div class="range-slider_line">
+              <!-- <div id="slider_line" class="range-slider_line-fill"></div> -->
+            </div>
+            <input id="slider_input" class="range-slider_input" type="range" value="2002" min="1960" max="2016">
+          </div>
     </div>
 
     <script type="text/javascript" src="script.js"></script>
