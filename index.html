@@ -29,24 +29,44 @@
         </div>
 
     </div>
-    <!-- top middle -->
-    <!-- <div class='map-overlay-eventbox' id='map-overlay-eventbox'>
-    <label id='eventlable'></label>
-</div> -->
 
-    <!-- top right -->
-    <!-- <div class='map-overlay-yearbox'> <label id='yearlable'></label> </div> -->
+    <div class="layerbox-positioner">
+            <div class="layerbox-toggle">
+                <img src="img/layer1960.png" alt="Raster Layers">
+            </div>
 
-    <!-- bottom middle -->
+            <div id="layerbox-menu" class="hidden">
+                <button class="layer-toggle" type="button">
+                    <img src="img/layer1960.png" alt="1960" data-name="1960">
+                    <div>1960</div>
+                </button>
+                <button class="layer-toggle" type="button">
+                    <img src="img/layer1963.png" alt="1963" data-name="1963" data-year="1963">
+                    <div>1963</div>
+                </button>
+                <button class="layer-toggle" type="button">
+                    <img src="img/layer1965.png" alt="1965" data-name="1965" data-year="1965">
+                    <div>1965</div>
+                </button>
+                <button class="layer-toggle" type="button">
+                    <img src="img/layer1968.png" alt="1968" data-name="1968" data-year="1968">
+                    <div>1968</div>
+                </button>
+                <button class="layer-toggle" type="button">
+                    <img src="img/layer2003.png" alt="2003" data-name="2003" data-year="2003">
+                    <div>2003</div>
+                </button>
+                <button class="close-button" type="button">
+                </button>
+            </div>
+    </div>
+
     <div id='overlay-slider'>
-        <!-- <input id='slider' class='slider' type='range' min='1960' max='2016' step='1' value='2002' /> -->
         <div class="range-slider">
             <div id="slider_thumb" class="range-slider_thumb"></div>
-            <div class="range-slider_line">
-              <!-- <div id="slider_line" class="range-slider_line-fill"></div> -->
-            </div>
+            <div class="range-slider_line"></div>
             <input id="slider_input" class="range-slider_input" type="range" value="2002" min="1960" max="2016">
-          </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="script.js"></script>

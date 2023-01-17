@@ -66,6 +66,10 @@ $(document).ready(function () {
     // This filter is different for the other layers
     map.setFilter('photos', ["any", ['==', 'date', year], ['==', 'date', yearplus1], ['==', 'date', yearminus1], ['==', 'date', yearplus2], ['==', 'date', yearminus2]]);                      //photo_pois timeline
 
+
+
+
+
     // Set the year label to the selected year
     // document.getElementById('yearlable').textContent = year;
 
@@ -100,6 +104,7 @@ $(document).ready(function () {
     // };
   }
 
+
   map.on('load', function test() {
     //Set filter to first year of the year
     //filterBy("" + 2002 + "");
@@ -123,44 +128,28 @@ $(document).ready(function () {
   });
 });
 
-//The values in this variable are the layer names that will have a toggle.
-var toggleableLayerIds = ['1960', '1963', '1965', '1968', '2003'];
 
-//The following code is to creatie the buttons to toggle layers ON or OFF. This will be used to show layers of scanned maps.
-for (var i = 0; i < toggleableLayerIds.length; i++) { //begining of the 
-  var id = toggleableLayerIds[i];
-  var link = document.createElement('a');
-  link.href = '#';
-  link.className = '';
-  link.textContent = id;
-  link.onclick = function (e) {
-    //The following commented lines are some experiments to make the time jump to a year and to hide the infobox
-    // var year = id;
-    // filterBy(year);
-    //$('#map-overlay-infobox').hide();
-    var clickedLayer = this.textContent;
-    e.preventDefault();
-    e.stopPropagation();
-    var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+// raster layer switcher
+document.getElementById("layerbox-menu").addEventListener("click", function (event) {
+  const rasterLayers = ['1960', '1963', '1965', '1968', '2003'];
+  
+  // hide all raster layers
+  for (const rasterLayer of rasterLayers) {
+    map.setLayoutProperty(rasterLayer, 'visibility', 'none');
+  }
 
-    if (visibility === 'visible') {
-      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-      this.className = '';
-    } else {
-      this.className = 'active';
-      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-    }
-  };
-  var layers = document.getElementById('menu');
-  // layers.appendChild(link);
-}
+  // show selected raster layer if any
+  const layername = event.target.dataset.name;
+  if (layername) {
+    map.setLayoutProperty(layername, 'visibility', 'visible');
+  }
+});
 
 
 
 
 
 // custom js for slider
-
 const slider_input = document.getElementById('slider_input');
 const slider_thumb = document.getElementById('slider_thumb');
 const slider_line = document.getElementById('slider_line');

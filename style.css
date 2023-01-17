@@ -22,7 +22,9 @@ h2 {
   font-weight: 200;
 }
 
-
+.hidden {
+  display: none;
+}
 
 #map {
   position: absolute;
@@ -78,11 +80,96 @@ h2 {
   z-index: 1;
 }
 
+.layerbox-positioner {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  /* box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); */
+  /* border-radius: 4px; */
+}
 
+.layerbox-positioner:hover #layerbox-menu {
+  display: block;
+}
 
+.layerbox-positioner:hover .layerbox-toggle {
+  display: none;
+}
 
+.layerbox-positioner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.layerbox-toggle {
+  width: 80px;
+  height: 80px;
+  border: solid 2px white;
+  border-radius: 5px;
+  padding: 0;
+}
 
+.layer-toggle {
+  display: block;
+  margin-top: 5px;
+  width: 80px;
+  height: 80px;
+  border: solid 2px white;
+  border-radius: 5px;
+  padding: 0;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.layer-toggle div {
+  content: "test";
+  position: relative;
+  left: auto;
+  height: 33px;
+  bottom: 35px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 5px;
+  /* background-color: rgba(0,0,0,0.5); */
+  /* gradient */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  z-index: 5;
+  border-radius: 0 0 3px 3px;
+  /* ignore click event */
+  pointer-events: none;
+  
+}
+
+.close-button {
+  margin: 30px auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.close-button:before, .close-button:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+}
+
+.close-button:before {
+  transform: rotate(45deg);
+}
+
+.close-button:after {
+  transform: rotate(-45deg);
+}
 
 
 /* custom range slider CSS follows */
@@ -110,23 +197,23 @@ h2 {
 } */
 
 .range-slider {
-	position: relative;
-	width: 80vmin;
-	height: 5vmin;
+  position: relative;
+  width: 80vmin;
+  height: 5vmin;
 }
 
 .range-slider_input {
-	width: 100%;
-	position: absolute;
-	top: 50%;
-	z-index: 3;
-	transform: translateY(-50%);
-	-webkit-appearance: none;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  transform: translateY(-50%);
+  -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 4px;
   opacity: 0;
-	margin: 0;
+  margin: 0;
 }
 
 .range-slider_input::-webkit-slider-thumb {
@@ -135,44 +222,44 @@ h2 {
   width: 100px;
   height: 5vmin;
   cursor: pointer;
-	border-radius: 50%;
-	opacity: 0;
+  border-radius: 50%;
+  opacity: 0;
 }
 
 .range-slider_input::-moz-range-thumb {
   width: 14vmin;
   height: 10vmin;
   cursor: pointer;
-	border-radius: 50%;
-	opacity: 0;
+  border-radius: 50%;
+  opacity: 0;
 }
 
 .range-slider_thumb {
   padding: 5px 10px;
-	border: 0.3vmin solid #303030;
-	border-radius: 10px;
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	background-color: #f4f4f4;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 700;
-	font-size: 2.5vmin;
-	color: #303030;
-	z-index: 2;
+  border: 0.3vmin solid #303030;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2.5vmin;
+  color: #303030;
+  z-index: 2;
 }
 
 .range-slider_line {
-	height: 0.5vmin;
-	width: 100%;
-	background-color: #303030;
-	top: 50%;
-	transform: translateY(-50%);
+  height: 0.5vmin;
+  width: 100%;
+  background-color: #303030;
+  top: 50%;
+  transform: translateY(-50%);
   border-radius: 3px;
-	left: 0;
-	position: absolute;
-	z-index: 1;
+  left: 0;
+  position: absolute;
+  z-index: 1;
 }
